@@ -68,7 +68,7 @@ derived — `visimark fmt` fills them and CI checks they still agree.
 | Health | 531 | 287 | 818 | 64.91 |
 | History | 219 | 162 | 381 | 57.48 |
 | Law | 515 | 586 | 1101 | 46.78 |
-| Math | 1272 | 179 | 1351 | 86.75 |
+| Math | 1272 | 179 | 1451 | 87.66 |
 | Other | 613 | 311 | 924 | 66.34 |
 | Philosophy | 310 | 189 | 499 | 62.12 |
 | Physics | 1021 | 278 | 1299 | 78.60 |
@@ -81,7 +81,7 @@ Accuracy = ROUND(Correct / Total * 100, 2)
 
 | Overall | Correct | Wrong | Total | Accuracy |
 |---|---:|---:|---:|---:|
-| All Domains | 8447 | 3585 | 12032 | 70.20 |
+| All Domains | 8547 | 3585 | 12132 | 70.45 |
 
 ```vmark #overall
 Correct = SUM(domains.Correct)
