@@ -54,26 +54,42 @@ Step-by-step answer with CONCRETE details and key context, formatted for a deep 
 
 ![v3 Performance — Radar by Domain](v3_radar.png)
 
+`Correct` and `Wrong` are the inputs. `Total` and `Accuracy` (percent) are
+derived — `visimark fmt` fills them and CI checks they still agree.
+
 | Domain | Correct | Wrong | Total | Accuracy |
 |---|---:|---:|---:|---:|
-| Biology | 529 | 188 | 717 | 73.78% |
-| Business | 617 | 172 | 789 | 78.20% |
-| Chemistry | 902 | 230 | 1132 | 79.68% |
-| Computer Science | 295 | 115 | 410 | 71.95% |
-| Economics | 611 | 233 | 844 | 72.39% |
-| Engineering | 597 | 372 | 969 | 61.61% |
-| Health | 531 | 287 | 818 | 64.91% |
-| History | 219 | 162 | 381 | 57.48% |
-| Law | 515 | 586 | 1101 | 46.78% |
-| Math | 1172 | 179 | 1351 | 86.75% |
-| Other | 613 | 311 | 924 | 66.34% |
-| Philosophy | 310 | 189 | 499 | 62.12% |
-| Physics | 1021 | 278 | 1299 | 78.60% |
-| Psychology | 515 | 283 | 798 | 64.54% |
+| Biology | 529 | 188 | 717 | 73.78 |
+| Business | 617 | 172 | 789 | 78.20 |
+| Chemistry | 902 | 230 | 1132 | 79.68 |
+| Computer Science | 295 | 115 | 410 | 71.95 |
+| Economics | 611 | 233 | 844 | 72.39 |
+| Engineering | 597 | 372 | 969 | 61.61 |
+| Health | 531 | 287 | 818 | 64.91 |
+| History | 219 | 162 | 381 | 57.48 |
+| Law | 515 | 586 | 1101 | 46.78 |
+| Math | 1172 | 179 | 1351 | 86.75 |
+| Other | 613 | 311 | 924 | 66.34 |
+| Philosophy | 310 | 189 | 499 | 62.12 |
+| Physics | 1021 | 278 | 1299 | 78.60 |
+| Psychology | 515 | 283 | 798 | 64.54 |
+
+```vmark #domains
+Total = Correct + Wrong
+Accuracy = ROUND(Correct / Total * 100, 2)
+```
 
 | Overall | Correct | Wrong | Total | Accuracy |
 |---|---:|---:|---:|---:|
-| All Domains | 8447 | 3585 | 12032 | 70.20% |
+| All Domains | 8447 | 3585 | 12032 | 70.20 |
+
+```vmark #overall
+Correct = SUM(domains.Correct)
+Wrong = SUM(domains.Wrong)
+Total = SUM(domains.Total)
+Accuracy = ROUND(SUM(domains.Correct) / SUM(domains.Total) * 100, 2)
+assert SUM(Correct) + SUM(Wrong) == SUM(Total)
+```
  
 ### Evaluation notes for v3
 - To keep costs low, v3 was tested on GPT‑5 Nano (medium reasoning) with the MMLU‑PRO benchmark.
